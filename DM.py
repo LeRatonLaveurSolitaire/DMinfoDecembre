@@ -29,5 +29,11 @@ return res
 //Q10 : 
 def placement1Drapide(N,R,L):
     l= L-N*2*R
-    
+    res=[l*np.random.rand(1) for i in range(N)]     //on place N point sur le segement [0;l[
+    res.sort()                                      //on trie la liste
+    for i in range(N)                               //pour chaque point, on ajoute le rayon de la particule 
+        res[i]+=R+i*2*R                             //ainsi que le décalage des autres particules
+    return res
+//Q11 : 1 + N*2 + 1 + N*3 + 1 = O(N) c est mieux que la situation précédente, plus rapide et sans boucle répétitive
+//Q12 : 
                          
