@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 22 12:29:26 2020
+//Thomas Boulanger et Siméon Boyer  PSI*1
 
-@author: Thomas
-"""
+
 import math
 import numpy as np
 import random
@@ -17,4 +14,20 @@ import random
 //Q4 : on compare ensuite la position de la boule c avec toutes les autres boules pour voir si il
 //n y a pas de collisions entres elles, si il y en a une, on return False, sinon on return True
 //Q5 : la fonction possible vérifie qu il est possible de placer une particule sur la position c 
-//Q6 : p = R + (L-2*R)* random()
+//Q6 : p = R + (L-2*R)* np.random.rand(1)         avec cette version, il n y a pas de collision
+// possible avec les bords
+//Q7 : la fonction possible revera toujours Fasle, car il est impossible deplacer une 4 ème 
+// particule, la fonction va donc être bloquer dans une boucle while.
+//Q8 : C = 1 + N * (2 + (2 + N*2 + 1) + 1) + 1 = 2N² +6N +2 = O(N²)
+//Q9 : 
+res=[]
+while len(res)<N:
+    p = R + (L-2*R)* np.random.rand(1)
+    if possible(p): res.append(p)
+    else : res=[]
+return res
+//Q10 : 
+def placement1Drapide(N,R,L):
+    l= L-N*2*R
+    
+                         
