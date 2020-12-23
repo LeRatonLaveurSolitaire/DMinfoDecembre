@@ -36,4 +36,6 @@ def placement1Drapide(N,R,L):
     return res
 //Q11 : 1 + N*2 + 1 + N*3 + 1 = O(N) c est mieux que la situation précédente, plus rapide et sans boucle répétitive
 //Q12 : 
-                         
+//Q13 :
+ def deplacement(D,N,R,L):
+        
