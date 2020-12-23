@@ -38,4 +38,28 @@ def placement1Drapide(N,R,L):
 //Q12 : 
 //Q13 :
  def deplacement(D,N,R,L):
-        
+     def possible(c):
+        for i in range(res):
+            d = 0
+            for j in ragne(D):
+                d+=(c[j]-res[i][j])**2
+            if d < R**2 :
+                return False
+        return True
+     res = []
+     While len(res)<N:
+        p = R + (L-2*R)* np.random.rand(D)
+        if possible(p) : res.append(p)
+        else : res=[]
+     return res
+ //Q14 : Entre chaque choc ou rebond, la particule avance en ligne droite
+ //Q15 : lorque m1=m2, v1'=v2 et v2'=v1, chaque particule part dans la direction de l autre avec la vitesse de celle-ci
+ //       il y a un transfert d'énergie entre les deux particules
+ //Q16 : lorsque m1<<m2, v1'= - v1 + 2*v2 v2'=v2 cettesituation corrspond à un rebond contre une paroie
+ //Q17 : def vol(p,t):
+            p[0]+=p[1]*t
+ //Q18 : def rebond(p,d):
+            p[1][d]=-p[1][d]
+ //Q19 : def choc(p1,p2):
+            p1[1],p2[1]=p2[1],p1[2]
+       
