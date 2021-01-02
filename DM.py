@@ -9,16 +9,16 @@ import random
 
 //Q1 : p est tableau de numpy de dimension 1 à une case contenant un flottant compris entre 0 et L.
 //Q2 : c est un tableau de numpy définit comme argument de la fonction possible.
-//Q3 : la première case du tableau c est comparé aux bords du récipient pour voir si il n entre pas
-//en contacte avec les parois, si il y a contact, la position n est pas possible, on return False
+//Q3 : la première case du tableau c est comparé aux bords du récipient - au rayon des sphères - pour voir si il n entre pas
+//en contacte - n y a pas pénétration - avec les parois, si il y a contact, la position n est pas possible, on return False
 //Q4 : on compare ensuite la position de la boule c avec toutes les autres boules pour voir si il
-//n y a pas de collisions entres elles, si il y en a une, on return False, sinon on return True
+//n y a pas de collisions - pénétration - entres elles, si il y en a une, on return False, sinon on return True
 //Q5 : la fonction possible vérifie qu il est possible de placer une particule sur la position c 
-//Q6 : p = R + (L-2*R)* np.random.rand(1)         avec cette version, il n y a pas de collision
+//Q6 : p = R + (L-2*R)* np.random.rand(1)         avec cette version, il n y a pas de collision - pénétration -
 // possible avec les bords
 //Q7 : la fonction possible revera toujours Fasle, car il est impossible deplacer une 4 ème 
 // particule, la fonction va donc être bloquer dans une boucle while.
-//Q8 : C = 1 + N * (2 + (2 + N*2 + 1) + 1) + 1 = 2N² +6N +2 = O(N²)
+//Q8 : C = 1 + N * (2 + (2 + N*2 + 1) + 1) + 1 = 2N² +6N +2 = O(N²) - j aurais mis N/2*2 au lieu de N*2
 //Q9 : 
 res=[]
 while len(res)<N:
@@ -35,7 +35,7 @@ def placement1Drapide(N,R,L):
         res[i]+=R+i*2*R                             //ainsi que le décalage des autres particules
     return res
 //Q11 : 1 + N*2 + 1 + N*3 + 1 = O(N) c est mieux que la situation précédente, plus rapide et sans boucle répétitive
-//Q12 : 
+//Q12 :  - fait? un histogramme continu? -
 //Q13 :
  def deplacement(D,N,R,L):
      def possible(c):
@@ -54,12 +54,18 @@ def placement1Drapide(N,R,L):
      return res
  //Q14 : Entre chaque choc ou rebond, la particule avance en ligne droite
  //Q15 : lorque m1=m2, v1'=v2 et v2'=v1, chaque particule part dans la direction de l autre avec la vitesse de celle-ci
- //       il y a un transfert d'énergie entre les deux particules
- //Q16 : lorsque m1<<m2, v1'= - v1 + 2*v2 v2'=v2 cettesituation corrspond à un rebond contre une paroie
+ //       il y a un transfert d énergie entre les deux particules
+ //Q16 : lorsque m1<<m2, v1'= - v1 + 2*v2 v2'=v2 cettesituation corrspond à un rebond contre une paroie - si v2=0 -
  //Q17 : def vol(p,t):
             p[0]+=p[1]*t
  //Q18 : def rebond(p,d):
             p[1][d]=-p[1][d]
  //Q19 : def choc(p1,p2):
             p1[1],p2[1]=p2[1],p1[2]
+ 
+ //Q20 :
+  def tc(p,R,L):
+        v=p[1]
+        if v==0: return None
+        
        
